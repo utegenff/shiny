@@ -3,7 +3,7 @@ library(shiny)
 shinyUI(pageWithSidebar(
   headerPanel("CSV Viewer"),
   sidebarPanel(
-    fileInput('file1', 'Choose CSV File',
+    fileInput('file1', 'dataset.csv',
               accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
     tags$hr(),
     checkboxInput('header', 'Header', TRUE),
