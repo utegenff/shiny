@@ -7,25 +7,19 @@ library(datasets)
 mpgData <- mtcars
 mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
 
-# Define server logic required to plot various variables against mpg
 shinyServer(function(input, output) {
+  output$contents <- renderTable({
+    
+    # input$file1 will be NULL initially. After the user selects and uploads a 
+    # file, it will be a data frame with 'name', 'size', 'type', and 'datapath' 
+    # columns. The 'datapath' column will contain the local filenames where the 
+    # data can be found.
 
-  # Compute the forumla text in a reactive expression since it is 
-  # shared by the output$caption and output$mpgPlot expressions
-  formulaText <- reactive({
-    paste("mpg ~", input$variable)
-  })
+    inFile <- input$file1
 
-  # Return the formula text for printing as a caption
-  output$caption <- renderText({
-    formulaText()
-  })
-
-  # Generate a plot of the requested variable against mpg and only 
-  # include outliers if requested
-  output$mpgPlot <- renderPlot({
-    boxplot(as.formula(formulaText()), 
-            data = mpgData,
-            outline = input$outliers)
+    if (is.null(inFile))
+      return(NULL)
+    
+    read.csv(inFile$datapath, header=input$header, sep=input$sep, quote=input$quote)
   })
 })
