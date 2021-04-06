@@ -1,6 +1,6 @@
 ui <- navbarPage("SuicideRate", theme = shinytheme("flatly"),
   tabPanel("Main",
-    titlePanel(div(windowTitle = "GraduatEmploymentSG", img(src = "sg0.jpg", width = "100%", class = "bg"),)),
+    titlePanel(div(windowTitle = "SuicideRateSG", img(src = "suicide.jpeg", width = "100%", class = "bg"),)),
     
     Panel: Main>Summary             
     ##########################################
@@ -10,7 +10,7 @@ ui <- navbarPage("SuicideRate", theme = shinytheme("flatly"),
       tabPanel("Summary",        
         sidebarLayout(
           sidebarPanel(h3("Data by Year"),
-            selectInput("checkYear", "Select Year", choices = list("2018", "2017", "2016", "2015", "2014", "2013"),selected = "2018")),
+            selectInput("checkYear", "Select Year", choices = list("2019", "2018", "2017"),selected = "2019")),
           
           mainPanel(
             tabsetPanel(type = "tabs",
