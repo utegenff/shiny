@@ -41,12 +41,5 @@ server <- function(session, input, output) {
       kable("html", col.names = c("Country", "Female", "Male")) %>%
       kable_styling(c("striped", "hover"), full_width = T)})
   
-  piePlot section
-  ###########################################
-  output$piePlot <- renderPlot({
-    colmap <-
-      c("#bdb2ff", # NUS "#ffc6ff", # NTU "#fffffc", # SMU "#33658A", # SIT "#3a506b", # SUTD "#577590", # SUSS "#43aa8b",
-        # NIE "#90be6d", # SP "#f9c74f", # NP "#f8961e", # TP "#f3722c", # NAYANG POLY "#f94144", # RP "#ffadad",
-        # NAFA DEG "#ffd6a5", # LAS DEG "#fdffb6", # NAFA DIP "#caffbf", # NAFA DEG "#a8dadc"  # ITE)
     
 }
